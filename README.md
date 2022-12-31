@@ -46,6 +46,7 @@ To view the code navigate to the website using the link above and right click on
 
 ### Resources:
 
+[5 Day Weather Forecast](https://openweathermap.org/forecast5)
 
 MIT License
 
