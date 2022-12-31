@@ -1,4 +1,4 @@
-var APIKey = "dcf6b470c96bccc5eb9926e9b77a3b90" ;
+var APIKey = "dcf6b470c96bccc5eb9926e9b77a3b90";
 var searchBtn = $(".search-button");
 var inputSearchBox = $(".weather-search");
 var cityList = $(".list-group");
@@ -35,13 +35,13 @@ function createCityList() {
 
 
 //Handles the Search button click event
-searchBtn.click(function(event) {
+searchBtn.click(function (event) {
     event.preventDefault()
     getCityWeatherData(inputSearchBox.val().toLowerCase())
 }
 )
 
-cityList.delegate("li", "click", function(event) {
+cityList.delegate("li", "click", function (event) {
     var cityName = $(this)[0].innerText
     getCityWeatherData(cityName)
 }
@@ -51,8 +51,8 @@ cityList.delegate("li", "click", function(event) {
 function getCityWeatherData(cityName) {
 
     $.get(`https://api.openweathermap.org/data/2.5/weather?appid=${APIKey}&units=metric&q=${cityName}`)
-        .then(function(data) {
-           
+        .then(function (data) {
+
             if (data) {
                 if (!tempArray.length) {
                     tempArray.push(cityName)
@@ -67,9 +67,9 @@ function getCityWeatherData(cityName) {
                 inputSearchBox.val("")
                 long = data.coord.lon
                 lat = data.coord.lat
-               createForecastSection(data)
-               forecastSection.empty()
-               get5DaysForecastData()
+                createForecastSection(data)
+                forecastSection.empty()
+                get5DaysForecastData()
             }
             else {
                 alert("Please enter valid city name")
@@ -101,20 +101,20 @@ function get5DaysForecastData() {
     $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=metric&appid=${APIKey}`)
         .then(function (data) {
             console.log(data, data.list[0], data.list[4], data.list[7])
-          var j = 0;
+            var j = 0;
             for (var i = 0; i < 40; i++) {
-                    forecast5day(data.list[i])
-                    j++
-                    }            
-                }
-            )
-    }
+                forecast5day(data.list[i])
+                j++
+            }
+        }
+        )
+}
 
 //Creates today's forecast and 5 day forecast sections
 function createForecastSection(data) {
     var todayDate = $("<h4>")
     var forcastImg = $("<img>")
-    var TempPar= $("<p>")
+    var TempPar = $("<p>")
     var humidityPar = $("<p>")
     var windPar = $("<p>")
 
@@ -129,21 +129,20 @@ function createForecastSection(data) {
 
     todaySection.empty()
 
-        var h4 = $("<h4>")
-        h4.addClass("locationName")
-        h4.text(data.name)
-        todaySection.append(h4)
-        todayDate.addClass("todayDate")
+    var h4 = $("<h4>")
+    h4.addClass("locationName")
+    h4.text(data.name)
+    todaySection.append(h4)
+    todayDate.addClass("todayDate")
 
     todaySection.append(todayDate)
-    todaySection.append(forcastImg) 
+    todaySection.append(forcastImg)
     todaySection.append(TempPar)
     todaySection.append(windPar)
     todaySection.append(humidityPar)
 }
 
-function forecast5day(data)
-{
+function forecast5day(data) {
     var div = $("<div>")
     div.addClass("forecast-5-day")
     var todayDate = $("<h6>")
@@ -162,10 +161,10 @@ function forecast5day(data)
     humidityPar.text(`Humidity: ${data.main.humidity}%`)
 
     div.append(todayDate)
-    div.append(forcastImg)    
+    div.append(forcastImg)
     div.append(TempPar)
     div.append(windPar)
     div.append(humidityPar)
-    
+
     forecastSection.append(div)
 }

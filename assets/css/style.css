@@ -5,57 +5,57 @@
 }
 
 .weather-header {
-    background-image: linear-gradient(to right, #3360B9, #11808f);
+    background-image: linear-gradient(grey, #941a65);
+}
+
+#search-input {
+    border-radius: 5px;
+    text-align: center;
+    border-color: #941a65;
+    margin: 2px;
 }
 
 .form .input-group-append #search-button {
-    background-color: #075bb4;
+    background-color: #941a65;
     border-radius: 5px;
-    margin-top: 10px;
+    margin: 2px;
     color: white;
     font-size: 12px;
 }
 
-.weather-hr {
-    color: #313030;
+.list-group ul li {
+    color: white;
+    background-color: #941a65;
+    list-style-type: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
 }
 
-
-.list-group ul li
-{
- color: white;
- background-color: #1d32eb;
- list-style-type: none;
-margin-bottom:10px;
-border-radius: 5px;
-text-align: center;
-
+#today {
+    padding: 10px;
 }
 
-#today
-{
-    padding:10px;
+.locationName {
+    display: inline-block;
 }
-.locationName
-{
-    display:inline-block;  
+
+.todayDate {
+    display: inline-block;
+    margin: 10px;
+    text-align: left;
 }
-.todayDate
-{
-    display:inline-block;    
-    margin:10px;
-    text-align:left;
+
+#forecast {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
 }
-#forecast
-{
-    display:flex;    
-    justify-content:space-around;
-    padding:10px;
-}
-.forecast-5-day
-{
-    background-color: #941a65;    
-    padding:20px;
-    margin:10px;
-    color:white;                         
+
+.forecast-5-day {
+    background-color: #941a65;
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    border-radius: 5px;
 }
