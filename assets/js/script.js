@@ -118,7 +118,7 @@ function createForecastSection(data) {
     var humidityPar = $("<p>")
     var windPar = $("<p>")
 
-    var date = moment().format('DD/MM/YYYY')
+    var date = moment().format('DD/MM/YYYY HH:mm')
     forcastImg.attr('src', `https://openweathermap.org/img/w/${data.weather[0].icon}.png`)
     todayDate.text(`(${date})`)
     var tempCelsius = Math.ceil(data.main.temp)
@@ -152,7 +152,7 @@ function forecast5day(data)
     var humidityPar = $("<p>")
     var windPar = $("<p>")
 
-    var date = moment(data.dt_txt.split(" ")[0]).format('DD/MM/YYYY')
+    var date = moment(data.dt_txt).format('DD/MM/YYYY HH:mm')
     forcastImg.attr('src', `https://openweathermap.org/img/w/${data.weather[0].icon}.png`)
     todayDate.text(`${date}`)
     var tempCelsius = Math.ceil(data.main.temp)
